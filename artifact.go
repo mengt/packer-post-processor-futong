@@ -11,6 +11,7 @@ const BuilderId = "packer.post-processor.futong"
 
 type Artifact struct {
 	files []string
+	Url string
 }
 
 func NewArtifact(files []string) (*Artifact, error) {
@@ -44,7 +45,7 @@ func (a *Artifact) Id() string {
 
 func (a *Artifact) String() string {
 	files := strings.Join(a.files, ", ")
-	return fmt.Sprintf("Created artifact from files: %s", files)
+	return fmt.Sprintf("URL of the template : %s", a.Url)
 }
 
 func (a *Artifact) State(name string) interface{} {
@@ -52,11 +53,7 @@ func (a *Artifact) State(name string) interface{} {
 }
 
 func (a *Artifact) Destroy() error {
-	for _, f := range a.files {
-		err := os.RemoveAll(f)
-		if err != nil {
-			return err
-		}
-	}
+        // TODO
+	// Delete the template from Futong
 	return nil
 }
