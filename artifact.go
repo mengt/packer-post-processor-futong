@@ -10,7 +10,6 @@ import (
 const BuilderId = "packer.post-processor.futong"
 
 type Artifact struct {
-	files []string
 	Url string
 }
 
