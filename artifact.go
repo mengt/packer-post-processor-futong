@@ -1,4 +1,4 @@
-package artifice
+package main
 
 import (
 	"fmt"
